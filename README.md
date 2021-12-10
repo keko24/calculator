@@ -1,0 +1,1 @@
+In this project I will be making a calculator with a GUI using HTML, CSS and JS.The calculator will contain all the basic math functions like adding, subtracting, multiplying and dividing. Hoping to prove my foundational skills in all of the technologies and make this calculator the best I can.
