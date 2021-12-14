@@ -65,20 +65,39 @@ function equationSolver(eq)
 
 function addDigit(e)
 {
+	if (flag === 1)
+	{
+		flag = 0;
+		clearDisplay();
+	}
 	display.textContent += e.target.textContent;
 }
 
 function addDigitKey(e)
 {
+	if (flag === 1)
+	{
+		flag = 0;
+		clearDisplay();
+	}
 	display.textContent += e.textContent;
 }
 
 function addOperator(e)
 {
+	if (flag === 1)
+	{
+		flag = 0;
+		clearDisplay();
+		display.textContent += `${ans} ${e.target.textContent} `;
+		return;
+	}
 	if (e.target.textContent === '=')
 	{
 		equation = display.textContent.split(' ');
-		display.textContent += ` = ${equationSolver(equation)}`;
+		ans = equationSolver(equation);
+		display.textContent += ` = ${ans}`;
+		flag = 1;
 		return;
 	}
 	display.textContent += ` ${e.target.textContent} `;
@@ -86,10 +105,19 @@ function addOperator(e)
 
 function addOperatorKey(e)
 {
+	if (flag === 1)
+	{
+		flag = 0;
+		clearDisplay();
+		display.textContent += `${ans} ${e.textContent} `;
+		return;
+	}
 	if (e.textContent === '=')
 	{
 		equation = display.textContent.split(' ');
-		display.textContent += ` = ${equationSolver(equation)}`;
+		ans = equationSolver(equation);
+		display.textContent += ` = ${ans}`;
+		flag = 1;
 		return;
 	}
 	display.textContent += ` ${e.textContent} `;
@@ -104,6 +132,8 @@ const digits = document.querySelectorAll('.digit');
 const operators = document.querySelectorAll('.operator');
 const clear = document.querySelector('#clear');
 const display = document.querySelector('#display');
+let flag = 0;
+let ans = 0;
 clear.addEventListener('click', clearDisplay);
 
 digits.forEach(digit => digit.addEventListener('click', addDigit));

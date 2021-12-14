@@ -1,3 +1,20 @@
+#container {
+	background-color: #F8F0E3;
+	width: 210px;
+	height: 260px;
+	padding: 5px;
+	padding-right: 12px;
+	padding-bottom: 12px;
+	border: 10px solid #BEBEBE;
+	border-radius: 8px;
+	box-shadow: 10px 10px 5px gray;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
+
 #calculator {
 	display: grid;
 	width: 200px;
@@ -5,6 +22,7 @@
 	grid-template-rows: repeat(5, 1fr [row-start]);
 	grid-template-columns: repeat(4, 1fr [column-start]);
 	grid-template-areas:
+		"display display display display"
 		"digit digit digit operator"
 		"digit digit digit operator"
 		"digit digit digit operator"
@@ -15,20 +33,25 @@
 .key {
 	width: 50px;
 	height: 50px;
+	background-color: #BEBEBE;
 }
 
 #display {
+	margin-left: 6px;
+	margin-bottom: 3px;
 	width: 202px;
 	height: 50px;
 	grid-column: 1 / 5;
 	grid-row: 5 / 6;
-	background-color: black;
-	color: white;
+	background-color: #282828;
+	color: #FFB000;
+	box-shadow: 5px 5px 5px 2px black inset;
 	font-size: 16px;
 	font-weight: 700;
 	display: flex;
 	align-items: center;
 	padding-left: 4px;
+	border-radius: 3px;
 }
 
 [data-key="4"] {
